@@ -4,7 +4,6 @@
     ViewData["Title"] = "Home page";
 }
 
-
 <h1>Aplicación Razor</h1>
 <p id="mensaje-recibido"></p>
 
@@ -18,10 +17,6 @@
 
 </div>
 <script>
-    // document.addEventListener("DOMContentLoaded", function () {
-    //     document.getElementById('angular-frame').src = "https://localhost:4200/";
-    // });
-
     window.addEventListener("message", function (event) {
         if (event.data.type === "update") {
             document.getElementById("mensaje-recibido").innerText = "Mensaje de Angular: " + event.data.data;
