@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Third';
-  message = 'Mensaje';
+  message = '';
   ngOnInit() {
     window.addEventListener("message", (event) => {
       if (event.data.type === "update") {

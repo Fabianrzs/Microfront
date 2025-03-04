@@ -67,6 +67,14 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "ssl": true,
+            "sslCert": "certificates/localhost.pem",
+            "sslKey": "certificates/localhost-key.pem",
+            "allowedHosts": [
+              "localhost"
+            ]
+          },
           "configurations": {
             "production": {
               "buildTarget": "Third:build:production"

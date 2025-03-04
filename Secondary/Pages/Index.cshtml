@@ -4,24 +4,43 @@
     ViewData["Title"] = "Home page";
 }
 
+
 <h1>Aplicación Razor</h1>
 <p id="mensaje-recibido"></p>
 
-<iframe id="angular-frame" width="100%" height="600px" style="border: none;"></iframe>
+<div class="container">
 
-<button onclick="sendMessageToAngular()">Enviar Mensaje a Angular</button>
+    <iframe id="angular-frame" title="angular content" src="/angular" style="border: none;"></iframe>
 
+	<button onclick="sendMessageToAngular()">Enviar Mensaje a Angular</button>
+	<button onclick="hidenIframe()">Ocultar</button>
+	<button onclick="visibleIframe()">Visible</button>
+
+</div>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById('angular-frame').src = "http://localhost:4200/";
-    });
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     document.getElementById('angular-frame').src = "https://localhost:4200/";
+    // });
+
     window.addEventListener("message", function (event) {
         if (event.data.type === "update") {
             document.getElementById("mensaje-recibido").innerText = "Mensaje de Angular: " + event.data.data;
         }
     });
+
     function sendMessageToAngular() {
+        console.log("sendMessageToAngular");
         const iframe = document.getElementById("angular-frame").contentWindow;
         iframe.postMessage({ type: "update", data: "¡Hola desde Razor!" }, "*");
+    };
+
+    function hidenIframe() {
+        const iframe = document.getElementById("angular-frame");
+        iframe.style.display = "none";
+    }
+
+    function visibleIframe() {
+        const iframe = document.getElementById("angular-frame");
+        iframe.style.display = "block";
     }
 </script>
