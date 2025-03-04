@@ -8,15 +8,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Third';
-  message = '';
-  ngOnInit() {
-    window.addEventListener("message", (event) => {
-      if (event.data.type === "update") {
-        this.message = event.data.data;
-      }
-    });
-  }
-  sendMessageToRazor() {
-    window.parent.postMessage({ type: "update", data: "¡Hola desde Angular!" }, "*");
-  }
 }

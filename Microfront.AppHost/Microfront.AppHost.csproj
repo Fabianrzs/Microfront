@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Principal\Principal.csproj" />
     <ProjectReference Include="..\Secondary\Secondary.csproj" />
+    <ProjectReference Include="..\WebApplication1\WebApplication1.csproj" />
   </ItemGroup>
 
 </Project>
