@@ -27,7 +27,8 @@ app.Use(async (context, next) =>
     if (context.Request.Path.StartsWithSegments("/angular"))
     {
         string frontAngular = builder.Configuration["Frontends:Angular"]!;
-        var angularUrl = new StringBuilder().Append(frontAngular).Append(context.Request.Path.ToString()).Replace("/angular", "").ToString();
+        var angularUrl = new StringBuilder().Append(frontAngular).Append(context.Request.Path.ToString())
+        .Replace("/angular", "").ToString();
         context.Response.Redirect(angularUrl);
         return;
     }
